@@ -11,6 +11,11 @@ export const getTodoById = (store, id) =>
 export const getTodos = store =>
   getTodoList(store).map(id => getTodoById(store, id));
 
+const getTodosByStatus = (todos, status) =>
+  todos.map(todo => {
+    return todo.completed === status ? todo : {};
+  });
+
 export const getTodosByVisibilityFilter = (store, filter) => {
   switch (filter) {
     case VisibilityFilters.SHOW_ALL:
@@ -23,8 +28,3 @@ export const getTodosByVisibilityFilter = (store, filter) => {
       return {};
   }
 };
-
-export const getTodosByStatus = (todos, status) =>
-  todos.map((todo, id) => {
-    return todo.completed === status ? { todo, id } : {};
-  });
