@@ -1,4 +1,4 @@
-import { VisibilityFilters } from "./redux/actions/actionTypes";
+import { VisibilityFilters } from "./actions/actionTypes";
 
 export const getTodoList = store =>
   store && store.todos ? store.todos.allIds : [];
