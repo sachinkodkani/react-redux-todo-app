@@ -16,7 +16,9 @@ export const getTodosByVisibilityFilter = (store, filter) => {
     case VisibilityFilters.SHOW_ALL:
       return getTodos(store);
     case VisibilityFilters.SHOW_ACTIVE:
-      return {};
+      return getTodosByStatus(getTodos(store), false);
+    case VisibilityFilters.SHOW_COMPLETED:
+      return getTodosByStatus(getTodos(store), true);
     default:
       return {};
   }
