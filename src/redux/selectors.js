@@ -12,7 +12,7 @@ export const getTodos = store =>
   getTodoList(store).map(id => getTodoById(store, id));
 
 const getTodosByStatus = (todos, status) =>
-  todos.map(todo => {
+  todos.map((todo, index) => {
     return todo.completed === status ? todo : {};
   });
 
