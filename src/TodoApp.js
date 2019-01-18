@@ -4,7 +4,7 @@ import AddTodo from './components/AddTodo';
 import VisibilityFilters from './components/VisibilityFilters';
 import "./styles.css";
 
-export default TodoApp = () => {
+const TodoApp = () => {
     return (
         <div className="todo-app">
             <h1>Todo List</h1>
@@ -14,3 +14,5 @@ export default TodoApp = () => {
         </div>
     );
 }
+
+export default TodoApp;

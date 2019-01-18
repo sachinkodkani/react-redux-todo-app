@@ -6,13 +6,13 @@ const Todo = ({ todo }) => (
         className="todo-item"
         onClick={() => { }}
     >
-        {todo && todo.completed ? "👌" : "👋"}{" "}}
+        {todo && todo.completed ? "👌" : "👋"}{" "}
         <span
             className={cx("todo-item__text",
                 todo && todo.completed && "todo-item__text--completed"
             )}
         >
-            {todo.text}
+            {todo && todo.text}
         </span>
     </li>
 );
