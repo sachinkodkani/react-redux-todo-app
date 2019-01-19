@@ -11,12 +11,11 @@ export const getTodoById = (store, id) =>
 export const getTodos = store =>
   getTodoList(store).map(id => getTodoById(store, id));
 
-
 export const getTodosByVisibilityFilter = (store, filter) => {
   const allTodos = getTodos(store);
   switch (filter) {
     case VisibilityFilters.SHOW_COMPLETED:
-    return allTodos.filter(todo => todo.completed);
+      return allTodos.filter(todo => todo.completed);
     case VisibilityFilters.SHOW_ACTIVE:
       return allTodos.filter(todo => !todo.completed);
     case VisibilityFilters.SHOW_ALL:
