@@ -11,20 +11,16 @@ export const getTodoById = (store, id) =>
 export const getTodos = store =>
   getTodoList(store).map(id => getTodoById(store, id));
 
-const getTodosByStatus = (todos, status) =>
-  todos.map((todo, index) => {
-    return todo.completed === status ? todo : {};
-  });
 
 export const getTodosByVisibilityFilter = (store, filter) => {
+  const allTodos = getTodos(store);
   switch (filter) {
-    case VisibilityFilters.SHOW_ALL:
-      return getTodos(store);
-    case VisibilityFilters.SHOW_ACTIVE:
-      return getTodosByStatus(getTodos(store), false);
     case VisibilityFilters.SHOW_COMPLETED:
-      return getTodosByStatus(getTodos(store), true);
+    return allTodos.filter(todo => todo.completed);
+    case VisibilityFilters.SHOW_ACTIVE:
+      return allTodos.filter(todo => !todo.completed);
+    case VisibilityFilters.SHOW_ALL:
     default:
-      return {};
+      return allTodos;
   }
 };
